@@ -24,13 +24,19 @@ provider "aws" {
 }
 
 
+data "local_file" "key_path" {
+
+  filename = "../../../Downloads/ec2_test_spring4shell.pem"
+
+}
+
 
 # Make a copy of the SSH key and place it on the EC2 Instance
 resource "aws_key_pair" "ssh_key" {
 
   key_name = "ssh-4-spring4shell"
 
-  public_key = file("../../../Downloads/ec2_test_spring4shell.pem")
+  public_key = data.local_file.key_path.content
 
 }
 
@@ -42,9 +48,9 @@ resource "aws_default_vpc" "default" {}
 
 
 # Security groups to create firewall rules for SSH
-resource "aws_security_group" "spring4shell-security-group-tf" {
+resource "aws_security_group" "SSHAdmin" {
 
-  name = "spring4shell-security-group-tf"
+  name = "SSHAdmin"
 
   description = "This security group is to replicate the spring4shell vulnerability via Docker container over Terraform infrastructure"
 
@@ -79,26 +85,19 @@ resource "aws_security_group" "spring4shell-security-group-tf" {
 
 }
 
-resource "aws_instance" "spring4shell" {
+resource "aws_instance" "basic_ec2" {
 
 
   ami           = "ami-090fa75af13c156b4"
   instance_type = "t2.micro"
 
-  vpc_security_group_ids      = aws_security_group.spring4shell-security-group-tf.id
-  key_name                    = aws.ssh_key.id
+  vpc_security_group_ids      = aws_security_group.SSHAdmin.id
+  key_name                    = aws_key_pair.ssh_key.id
   associate_public_ip_address = "true"
 
   root_block_device {
 
     volume_size = "25"
-
-  }
-
-
-  output "public_ip " {
-
-    value = aws_instance.basic_ec2.public_ip
 
   }
 
