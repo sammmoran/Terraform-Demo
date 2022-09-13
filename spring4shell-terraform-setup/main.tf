@@ -39,26 +39,16 @@ resource "aws_instance" "app_server" {
   #!/bin/bash
   
   sudo yum update -y
-  
   sudo yum install docker -y
-  
-  sudo yum install git -y
-  
+  sudo yum install git -y  
   sudo service docker start
-  
   sudo usermod -a -G docker ec2-user
-  
   sudo yum install python3
-  
-  alias python = python3
-  
-  git clone https://github.com/reznok/Spring4Shell-POC.git
-	
-	cd Spring4Shell-POC/
-	
+  sudo alias python = python3
+  sudo git clone https://github.com/reznok/Spring4Shell-POC.git && cd Spring4Shell-POC/
 	sudo docker build . -t spring4shell
-	
 	docker run -d -p 80:8080 spring4shell
+  
   EOD
   EOF
 
