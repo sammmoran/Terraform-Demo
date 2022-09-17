@@ -1,3 +1,6 @@
 .terraform.lock.hcl
 terraform.tfstate
 .terraform
+c2-covenent/.terraform.lock.hcl
+c2-covenent/terraform.tfstate
+c2-covenent/.terraform
