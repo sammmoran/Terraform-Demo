@@ -1,4 +1,4 @@
-resource "aws_security_group" "terraform-security-group" {
+resource "aws_security_group" "terraform_security_group" {
 
   name = "terraform-security-group"
 
