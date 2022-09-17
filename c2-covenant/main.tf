@@ -26,9 +26,9 @@ resource "aws_instance" "terraform-instance" {
 
   instance_type = "t2.micro"
 
-  iam_instance_profile = aws_iam_role.terraform_iam_role.id
+  iam_instance_profile = aws_iam_instance_profile.terraform_instance_profile.id
 
-  security_groups = [aws_security_group.terraform_security_group.id]
+  vpc_security_group_ids = [aws_security_group.terraform_security_group.id]
 
   key_name = "ec2_test_spring4shell"
 

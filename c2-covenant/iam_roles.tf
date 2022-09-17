@@ -49,3 +49,11 @@ resource "aws_iam_role" "terraform_iam_role" {
   managed_policy_arns = [aws_iam_policy.terraform-policy.arn]
 
 }
+
+
+resource "aws_iam_instance_profile" "terraform_instance_profile" {
+
+  name = "terraform-instance-profile"
+  role = aws_iam_role.terraform_iam_role.name
+
+}
