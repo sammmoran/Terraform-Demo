@@ -20,7 +20,7 @@ provider "aws" {
 
 
 
-resource "aws_instance" "terraform-instance" {
+resource "aws_instance" "terraform_instance" {
 
   ami = "ami-090fa75af13c156b4"
 

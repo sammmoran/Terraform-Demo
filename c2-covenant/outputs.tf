@@ -41,3 +41,25 @@ output "iam_role_arn" {
   value       = aws_iam_role.terraform_iam_role.managed_policy_arns
 
 }
+
+output "instance_name" {
+
+  description = "Name of the instance deployed"
+  value       = aws_instance.terraform_instance.id
+
+}
+
+output "instance_arn" {
+
+  description = "ARN of the instance deployed"
+  value       = aws_instance.terraform_instance.arn
+
+}
+
+output "instance_public_ip" {
+
+  description = "Public IP of the instance deployed"
+  value       = aws_instance.terraform_instance.public_ip
+
+}
+
