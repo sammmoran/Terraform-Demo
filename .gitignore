@@ -4,3 +4,6 @@ terraform.tfstate
 c2-covenent/.terraform.lock.hcl
 c2-covenent/terraform.tfstate
 c2-covenent/.terraform
+c2-reorganization/terraform.lock.hcl
+c2-reorganization/terraform.tfstate
+c2-reorganization/.terraform
