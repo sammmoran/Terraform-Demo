@@ -10,10 +10,13 @@ resource "aws_iam_policy" "terraform-policy" {
     Statement = [
 
       {
-        Action   = ["s3:Get*", "s3:List*", "s3-object-lambda:Get*", "s3-object-lambda:List*"]
-        Effect   = "Allow"
-        Resource = "*"
-
+        Action   = [
+          "s3:Get*",
+          "s3:List*",
+          "s3-object-lambda:Get*",
+          "s3-object-lambda:List*"
+        ]
+        
       }
 
     ]
