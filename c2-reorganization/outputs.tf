@@ -59,3 +59,16 @@ output "iam_role_profiles" {
   ]
 
 }
+
+
+# Outputs for created EC2 Instances
+output "instances" {
+
+  description = "Output for created instances"
+  value = [
+    aws_instance.target_instance.id,
+    aws_instance.redirector_instance.id,
+    aws_instance.c2_instance.id
+  ]
+
+} 
