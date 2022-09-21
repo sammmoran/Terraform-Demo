@@ -52,7 +52,7 @@ resource "aws_security_group" "c2_security_group" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["100.16.247.63/32"]
+    cidr_blocks = ["185.247.68.51/32"]
 
   }
 
@@ -62,7 +62,17 @@ resource "aws_security_group" "c2_security_group" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["100.16.247.63/32"]
+    cidr_blocks = ["185.247.68.51/32"]
+
+  }
+
+  # Ingress for RDP 
+  ingress {
+
+    from_port   = 3389
+    to_port     = 3389
+    protocol    = "tcp"
+    cidr_blocks = ["185.247.68.51/32"]
 
   }
 
@@ -72,7 +82,7 @@ resource "aws_security_group" "c2_security_group" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["100.16.247.63/32"]
+    cidr_blocks = ["185.247.68.51/32"]
 
   }
 
