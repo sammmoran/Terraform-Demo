@@ -24,7 +24,7 @@ variable "default-instance-type" {
 variable "AWS_SSH_KEY_NAME" {
 
   type    = string
-  default = "Terraform deployer should export TF_AWS_SSH_KEY_NAME to be EC2 private key on their host machine"
+  default = "Terraform deployer should export TF_VAR_AWS_SSH_KEY_NAME to be EC2 private key on their host machine"
 
 
 }

@@ -33,4 +33,5 @@ resource "aws_instance" "c2_instance" {
     Name = "c2-instance"
   }
 
+  user_data = file("c2-server.sh")
 }
