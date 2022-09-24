@@ -1,7 +1,7 @@
 # Security group for both Target and Redirector server
-resource "aws_security_group" "shared_target-redirector_security_group" {
+resource "aws_security_group" "common_security_group" {
 
-  name = "shared-target-redirector-security-group"
+  name = "common-security-group"
 
   description = "This security group is for the target and redirector EC2 Instances"
 
@@ -52,7 +52,7 @@ resource "aws_security_group" "c2_security_group" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["185.247.68.51/32"]
+    cidr_blocks = [var.IP_ADDRESS]
 
   }
 
@@ -62,7 +62,7 @@ resource "aws_security_group" "c2_security_group" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["185.247.68.51/32"]
+    cidr_blocks = [var.IP_ADDRESS]
 
   }
 
@@ -72,7 +72,7 @@ resource "aws_security_group" "c2_security_group" {
     from_port   = 3389
     to_port     = 3389
     protocol    = "tcp"
-    cidr_blocks = ["185.247.68.51/32"]
+    cidr_blocks = [var.IP_ADDRESS]
 
   }
 
@@ -82,7 +82,7 @@ resource "aws_security_group" "c2_security_group" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["185.247.68.51/32"]
+    cidr_blocks = [var.IP_ADDRESS]
 
   }
 

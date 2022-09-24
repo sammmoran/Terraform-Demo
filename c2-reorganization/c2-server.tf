@@ -19,13 +19,13 @@ provider "aws" {
 
 resource "aws_instance" "c2_instance" {
 
-  ami = var.windows-ami
+  ami = var.ubuntu-ami
 
   instance_type = var.default-instance-type
 
   iam_instance_profile = aws_iam_instance_profile.c2_iam_role_profile.id
 
-  vpc_security_group_ids = [aws_security_group.c2_security_group.id]
+  vpc_security_group_ids = [aws_security_group.common_security_group.id]
 
   key_name = var.AWS_SSH_KEY_NAME
 
