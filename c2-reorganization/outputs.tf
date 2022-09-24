@@ -1,9 +1,9 @@
 # Output for target and redirector security group
-output "shared_target-redirector_output" {
+output "common_output" {
 
   description = "Display security group shared by redirector and target"
   value = [
-    aws_security_group.shared_target-redirector_security_group.id, aws_security_group.shared_target-redirector_security_group.arn, aws_security_group.shared_target-redirector_security_group.owner_id
+    aws_security_group.common_security_group.id, aws_security_group.common_security_group.arn, aws_security_group.common_security_group.owner_id
   ]
 
 }

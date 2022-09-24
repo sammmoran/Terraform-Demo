@@ -23,16 +23,16 @@ variable "default-instance-type" {
 
 variable "AWS_SSH_KEY_NAME" {
 
-  type    = string
-  default = ""
+  type      = string
+  default   = ""
   sensitive = true
 
 }
 
 variable "IP_ADDRESS" {
 
-  type = string
-  default = ""
+  type      = string
+  default   = ""
   sensitive = true
 
 }
