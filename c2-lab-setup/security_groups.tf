@@ -37,6 +37,37 @@ resource "aws_security_group" "common_security_group" {
 
 }
 
+# Security group for Target
+resource "aws_security_group" "target_security_group" {
+
+  name = "target-security-group"
+
+  description = "This security group is for the target"
+
+  # Ingress SSH
+  ingress {
+
+    from_port   = 5901
+    to_port     = 5901
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+
+  }
+
+  # Egress everywhere
+  egress {
+
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+
+  }
+
+}
+
+
+
 
 
 # Security group for C2-server
