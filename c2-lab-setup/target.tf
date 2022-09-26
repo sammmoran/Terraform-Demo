@@ -6,7 +6,7 @@ resource "aws_instance" "target_instance" {
 
   iam_instance_profile = aws_iam_instance_profile.target_iam_role_profile.id
 
-  vpc_security_group_ids = [aws_security_group.common_security_group.id, aws_security_group.target_security_group.id]
+  vpc_security_group_ids = [aws_security_group.common_security_group.id, aws_security_group.vnc_security_group.id]
 
   key_name = var.AWS_SSH_KEY_NAME
 

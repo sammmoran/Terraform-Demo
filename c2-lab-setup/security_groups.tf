@@ -38,9 +38,9 @@ resource "aws_security_group" "common_security_group" {
 }
 
 # Security group for Target
-resource "aws_security_group" "target_security_group" {
+resource "aws_security_group" "vnc_security_group" {
 
-  name = "target-security-group"
+  name = "vnc-security-group"
 
   description = "This security group is for the target"
 
