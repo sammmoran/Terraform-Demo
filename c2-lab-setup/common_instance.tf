@@ -1,7 +1,7 @@
 variable "ubuntu-ami" {
 
   type    = string
-  default = "ami-090fa75af13c156b4"
+  default = "ami-08c40ec9ead489470"
 
 }
 
