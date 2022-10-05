@@ -1,23 +1,25 @@
 #! /bin/bash
 
 echo "------------------ Begin preliminary Ubuntu update ---------------------- " >> logfile.txt
-sudo sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' /etc/needrestart/needrestart.conf >> logfile.txt
-sudo apt-get update && sudo apt-get upgrade -y >> logfile.txt
-sudo apt-get install ubuntu-desktop -y >> logfile.txt
-sudo apt install tightvncserver -y >> logfile.txt
-echo "" >> logfile.txt
-echo "------------------- SUCCESS (1/3): TightVNC Servier Installed -------------- " >> logfile.txt
-echo "" >> logfile.txt
-sudo apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal -y >> logfile.txt
+sudo sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' /etc/needrestart/needrestart.conf
+sudo apt update -y
+sudo apt install ubuntu-desktop -y
+sudo apt install tightvncserver -y 
+sudo apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal -y
 
-
-# Try out the followinng
-echo "------------------ VNC Setup Beginning ---------------------- " >> logfile.txt
-echo $VNC_PASSWD | vncpasswd -f > ~/.vnc/passwd >> logfile.txt
+mkdir .vnc
+cd /.vnc
+touch passwd
+cd ..
+echo "gummybears" | vncpasswd -f > ~/.vnc/passwd >> logfile.txt
 chown -R ubuntu ~/.vnc 
-chmod 0600 /home/$myuser/.vnc/passwd
+chmod 0600 /home/ubuntu/.vnc/passwd
 
-vncserver :1 >> logfile.txt
+#echo $VNC_PASSWD | vncpasswd -f > ~/.vnc/passwd >> logfile.txt
+#chown -R ubuntu ~/.vnc 
+#chmod 0600 /home/$myuser/.vnc/passwd
+
+vncserver :1
 
 echo '#!/bin/sh' > ~/.vnc/xstartup
 
@@ -36,13 +38,9 @@ echo 'metacity &' >> ~/.vnc/xstartup
 echo 'nautilus &' >> ~/.vnc/xstartup
 echo 'gnome-terminal &' >> ~/.vnc/xstartup
 
-vncserver -kill :1 >> logfile.txt
+vncserver -kill :1
 
-vncserver :1 >> logfile.txt
-
-echo "" >> logfile.txt
-echo "------------------ SUCCESS (2/3): VNC Setup Concluded ---------------------- " >> logfile.txt
-echo "" >> logfile.txt
+vncserver :1
 
 
 echo "------------------ Covenant Setup Initiating ---------------------- " >> logfile.txt
@@ -62,6 +60,8 @@ echo "------------------ SUCCESS (3/3): Covenant Setup Concluded ---------------
 #mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-3.1.423-linux-x64.tar.gz -C $HOME/dotnet
 export DOTNET_ROOT=$HOME/dotnet 
 export PATH=$PATH:$HOME/dotnet
+
+sudo reboot
 
 #cd Covenent/Covenent/
 #dotnet run
