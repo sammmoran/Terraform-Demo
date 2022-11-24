@@ -44,24 +44,24 @@ vncserver :1
 
 
 echo "------------------ Covenant Setup Initiating ---------------------- " >> logfile.txt
-git clone --recurse-submodules https://github.com/cobbr/Covenant >> logfile.txt
+# git clone --recurse-submodules https://github.com/cobbr/Covenant >> logfile.txt
 
-#wget https://download.visualstudio.microsoft.com/download/pr/e137cdac-0e15-46ec-bd60-14fe6ad50c41/30c102677cc4bd0f117cc026781ec5e8/dotnet-sdk-3.1.423-linux-x64.tar.gz -y
+# #wget https://download.visualstudio.microsoft.com/download/pr/e137cdac-0e15-46ec-bd60-14fe6ad50c41/30c102677cc4bd0f117cc026781ec5e8/dotnet-sdk-3.1.423-linux-x64.tar.gz -y
 
-sudo snap install dotnet-sdk --classic --channel=6.0 >> logfile.txt
-sudo snap alias dotnet-sdk.dotnet dotnet >> logfile.txt
-sudo snap install dotnet-runtime-60 --classic >> logfile.txt
-sudo snap alias dotnet-runtime-60.dotnet dotnet >> logfile.txt
-export DOTNET_ROOT=/snap/dotnet-sdk/current >> logfile.txt
-sudo dotnet --info >> logfile.txt
+# sudo snap install dotnet-sdk --classic --channel=6.0 >> logfile.txt
+# sudo snap alias dotnet-sdk.dotnet dotnet >> logfile.txt
+# sudo snap install dotnet-runtime-60 --classic >> logfile.txt
+# sudo snap alias dotnet-runtime-60.dotnet dotnet >> logfile.txt
+# export DOTNET_ROOT=/snap/dotnet-sdk/current >> logfile.txt
+# sudo dotnet --info >> logfile.txt
 
-echo "------------------ SUCCESS (3/3): Covenant Setup Concluded ---------------------- " >> logfile.txt
+# echo "------------------ SUCCESS (3/3): Covenant Setup Concluded ---------------------- " >> logfile.txt
 
-#mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-3.1.423-linux-x64.tar.gz -C $HOME/dotnet
-export DOTNET_ROOT=$HOME/dotnet 
-export PATH=$PATH:$HOME/dotnet
+# #mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-3.1.423-linux-x64.tar.gz -C $HOME/dotnet
+# export DOTNET_ROOT=$HOME/dotnet 
+# export PATH=$PATH:$HOME/dotnet
 
-sudo reboot
+# sudo reboot
 
 #cd Covenent/Covenent/
 #dotnet run
